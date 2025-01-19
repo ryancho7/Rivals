@@ -1,0 +1,13 @@
+.dashboard-container {
+    font-family: "Bebas Neue", serif;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../assets/backgrounds/rivals-bg.svg');
+    background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.welcome-text {
+    margin: 0;
+    color: #DCE1F4;
+}
