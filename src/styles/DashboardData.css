@@ -1,7 +1,61 @@
 .data-container {
-    background: white;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
     border-radius: 20px;
+    padding: 1.5em 1em;
+    color: white;
+    font-size: 20px;
+}
+
+.text-area {
+    flex: 1;
+}
+
+.time-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+
+.clock-icon {
+    font-size: 30px;
+    /* margin-right: 0.4em; */
+}
+
+.report-count-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1em;
+    gap: 1em;
+}
+
+.graph-icon {
+    font-size: 30px;
+    /* margin-right: 0.8em;
+    margin-left: 0.1em; */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.report-feed-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     padding: 1em;
+    border-radius: 15px;
+}
+
+.edit-report-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1em;
+    border-radius: 15px;
 }
 
 .recent-reports {
