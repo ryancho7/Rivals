@@ -4,7 +4,7 @@ import '../styles/Landing.css'
 import { useNavigate } from "react-router-dom";
 import { auth, db, googleProvider } from '../Firebase';
 import { signInWithPopup } from "firebase/auth";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { Timestamp, doc, getDoc, setDoc } from "firebase/firestore";
 
 function Landing() {
 
@@ -27,7 +27,9 @@ function Landing() {
                 await setDoc(userRef, {
                     name: loggedInUser.displayName,
                     email: loggedInUser.email,
-                    lastLogin: new Date(),
+                    lastLogin: Timestamp.now(),
+                    reportCount: 0,
+                    lastReport: null
                 });
             }
             navigate("/dashboard");
