@@ -7,6 +7,7 @@ import { Timestamp, collection, deleteDoc, doc, getDoc, getDocs, increment, limi
 import { v4 as uuidv4 } from "uuid";
 import DashboardData from "../components/DashboardData";
 import '../styles/Dashboard.css';
+import UserReportCard from "../components/UserReportCard";
 
 function Dashboard() {
 
@@ -149,20 +150,8 @@ function Dashboard() {
                 Welcome,
                 <span className="display-name">{user.displayName}</span>
             </h1>
-            <DashboardData />
+            <DashboardData leaderboard={leaderboard}/>
             <button onClick={handleSignOut}>Sign Out</button>
-            <div className="leaderboard">
-                <h1>The Current Leaderboard Standings</h1>
-                {leaderboard.length === 0 ? (
-                    <div>It's so quiet here ...</div>
-                ) : (
-                    leaderboard.map((user, index) => (
-                        <div key={user.id}>
-                            {index + 1}. {user.name} - {user.reportCount} reports!
-                        </div>
-                    ))
-                )}
-            </div>
             <div className="create-report">
                 <input
                     type="text"
@@ -183,14 +172,7 @@ function Dashboard() {
                     <div>Looks like no one has reported yet ...</div>
                 ) : (
                     reportFeed.map((report) => (
-                        <div key={report.id}>
-                            <p>Reported Player: {report.reportedPlayer}</p>
-                            <p>Time: {report.timeOfReport.toDate().toLocaleString()}</p>
-                            <p>Likes: {report.likeCount}</p>
-                            <p>{report.comments}</p>
-                            <p>Reported By: {report.username}</p>
-                            <button onClick={() => handleLike(report.id)}>Like</button>
-                        </div>
+                        <UserReportCard key={report.id} report={report}/>
                     ))
                 )}   
             </div>

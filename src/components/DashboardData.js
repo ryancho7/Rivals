@@ -7,8 +7,9 @@ import { BsGraphUp, BsChatLeftText } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
 
 import '../styles/DashboardData.css';
+import UserReportCard from "./UserReportCard";
 
-function DashboardData() {
+function DashboardData({ leaderboard }) {
 
     const { user } = useContext(AuthContext);
 
@@ -93,24 +94,31 @@ function DashboardData() {
                         )}
                     </div>
                 </div>
-                <div className="button-container">
-                    <button className="report-feed-button"><BsChatLeftText /> Report Feed</button>
-                    <button className="edit-report-button"><FaRegEdit /> Edit Reports</button>
-                </div>
-                {/* <div className="recent-reports">
+                <div className="recent-reports">
                     {userReports.length === 0 ? (
                         <div className="no-reports">You haven't reported anyone recently</div>
                     ) : (
                         userReports.map((report) => (
-                            <div key={report.id} className="report-item">
-                                <p>Reported Player: {report.reportedPlayer}</p>
-                                <p>Time: {report.timeOfReport.toDate().toLocaleString()}</p>
-                                <p>Likes: {report.likeCount}</p>
-                                <p>{report.comments}</p>
+                            <UserReportCard key={report.id} report={report}/>
+                        ))
+                    )}
+                </div>
+                <div className="leaderboard">
+                    <h1 className="leaderboard-header">The Current Leaderboard Standings</h1>
+                    {leaderboard.length === 0 ? (
+                        <div>It's so quiet here ...</div>
+                    ) : (
+                        leaderboard.map((user, index) => (
+                            <div key={user.id}>
+                                {index + 1}. {user.name} - {user.reportCount} reports!
                             </div>
                         ))
                     )}
-                </div> */}
+                </div>
+                <div className="button-container">
+                    <button className="report-feed-button"><BsChatLeftText /> Report Feed</button>
+                    <button className="edit-report-button"><FaRegEdit /> Edit Reports</button>
+                </div>
             </div>
     )
 }

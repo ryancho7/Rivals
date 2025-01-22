@@ -1,6 +1,6 @@
 .dashboard-container {
     font-family: "Bebas Neue", serif;
-    height: 100vh;
+    min-height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../assets/backgrounds/rivals-bg.svg');
     background-size: cover;
     background-size: cover;
@@ -8,9 +8,9 @@
     padding: 2.5em;
 }
 
-.leaderboard {
+/* .leaderboard {
     color: #DCE1F4;
-}
+} */
 
 .welcome-text {
     margin-top: 0.6em;

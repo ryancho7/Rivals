@@ -39,23 +39,57 @@
 
 .button-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    margin-top: 1em;
+    gap: 1em;
 }
 
 .report-feed-button {
+    cursor: pointer;
+    background-color: #4681f4;
+    color: white;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
+    gap: 0.5em;
     padding: 1em;
     border-radius: 15px;
+    font-family: "Bebas Neue", serif;
+    font-size: 18px;
+    transition: background-color 0.1s ease-in;
+}
+
+.report-feed-button:hover {
+    background-color: #55c2da;
 }
 
 .edit-report-button {
+    cursor: pointer;
+    background-color: #4681f4;
+    color: white;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
+    gap: 0.5em;
     padding: 1em;
     border-radius: 15px;
+    font-family: "Bebas Neue", serif;
+    font-size: 18px;
+    transition: background-color 0.1s ease-in;
+}
+
+.edit-report-button:hover {
+    background-color: #55c2da;
+}
+
+.leaderboard {
+    text-align: center;
+}
+
+.leaderboard-header {
+    font-size: 30px;
 }
 
 .recent-reports {
