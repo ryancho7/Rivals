@@ -37,6 +37,11 @@
     margin-left: 0.1em; */
 }
 
+.user-report-header {
+    text-align: center;
+    font-size: 30px;
+}
+
 .button-container {
     display: flex;
     flex-direction: column;
@@ -54,7 +59,7 @@
     justify-content: center;
     gap: 0.5em;
     padding: 1em;
-    border-radius: 15px;
+    border-radius: 40px;
     font-family: "Bebas Neue", serif;
     font-size: 18px;
     transition: background-color 0.1s ease-in;
@@ -74,7 +79,7 @@
     justify-content: center;
     gap: 0.5em;
     padding: 1em;
-    border-radius: 15px;
+    border-radius: 40px;
     font-family: "Bebas Neue", serif;
     font-size: 18px;
     transition: background-color 0.1s ease-in;
@@ -93,5 +98,14 @@
 }
 
 .recent-reports {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    scroll-behavior: smooth;
+}
 
+.line {
+    width: 90%;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }

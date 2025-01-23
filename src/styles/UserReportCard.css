@@ -1,4 +1,35 @@
 .report-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: grey;
     border-radius: 10px;
+    flex: 0 0 230px;
+    background-size: cover;
+    background-position: center;
+    padding: 1em;
+    position: relative;
+    min-height: 250px;
+}
+
+.fade-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1));
+    border-radius: 0 0 10px 10px;
+}
+
+.main-content {
+    z-index: 1;
+}
+
+.time-content {
+    z-index: 1;
+}
+
+.time-content p {
+    margin-bottom: 0;
 }

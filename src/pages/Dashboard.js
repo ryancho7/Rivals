@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { Timestamp, collection, deleteDoc, doc, getDoc, getDocs, increment, limit, orderBy, query, setDoc, updateDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 import DashboardData from "../components/DashboardData";
+import { FaSignOutAlt } from "react-icons/fa";
 import '../styles/Dashboard.css';
-import UserReportCard from "../components/UserReportCard";
 
 function Dashboard() {
 
@@ -151,7 +151,9 @@ function Dashboard() {
                 <span className="display-name">{user.displayName}</span>
             </h1>
             <DashboardData leaderboard={leaderboard}/>
-            <button onClick={handleSignOut}>Sign Out</button>
+            <div className="signout-container">
+                <button onClick={handleSignOut} className="signout-button"><FaSignOutAlt />Sign Out</button>
+            </div>
             <div className="create-report">
                 <input
                     type="text"
@@ -167,7 +169,7 @@ function Dashboard() {
                 />
                 <button onClick={() => handleCreateReport(reportedTag, reportComment)}>Submit Report</button>
             </div>
-            <div className="report-feed">
+            {/* <div className="report-feed">
                 {reportFeed.length === 0 ? (
                     <div>Looks like no one has reported yet ...</div>
                 ) : (
@@ -175,7 +177,7 @@ function Dashboard() {
                         <UserReportCard key={report.id} report={report}/>
                     ))
                 )}   
-            </div>
+            </div> */}
         </div>
     )
 }

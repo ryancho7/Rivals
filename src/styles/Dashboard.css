@@ -26,3 +26,30 @@
 .report-feed {
     color: #DCE1F4;
 }
+
+.signout-button {
+    cursor: pointer;
+    background-color: #4681f4;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    padding: 1em;
+    border-radius: 40px;
+    font-family: "Bebas Neue", serif;
+    font-size: 18px;
+    transition: background-color 0.1s ease-in;
+    width: 100%;
+}
+
+.signout-button:hover {
+    background-color: #55c2da;
+}
+
+.signout-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}

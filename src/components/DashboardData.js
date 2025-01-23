@@ -16,6 +16,14 @@ function DashboardData({ leaderboard }) {
     const [ userReports, setUserReports ] = useState([]);
     const [ userData, setUserData ] = useState(null);
 
+    const backgroundImages = [
+        '/images/panther-map.png',
+        '/images/payload-map.jpg',
+        '/images/shibuya-map.png',
+        '/images/spider-map.png',
+        '/images/tokyo-map.png',
+    ];
+
     useEffect(() => {
         const fetchUserReports = async (userId) => {
             try {
@@ -24,7 +32,7 @@ function DashboardData({ leaderboard }) {
                     reportsRef,
                     where("userId", "==", userId),
                     orderBy("timeOfReport", "desc"),
-                    limit(5)
+                    limit(10)
                 );
                 const reportSnap = await getDocs(recentReports);
                 const recentReportData = reportSnap.docs.map((doc) => ({
@@ -94,15 +102,24 @@ function DashboardData({ leaderboard }) {
                         )}
                     </div>
                 </div>
-                <div className="recent-reports">
-                    {userReports.length === 0 ? (
-                        <div className="no-reports">You haven't reported anyone recently</div>
-                    ) : (
-                        userReports.map((report) => (
-                            <UserReportCard key={report.id} report={report}/>
-                        ))
-                    )}
+                <hr className="line"/>
+                <div className="user-reports-container">
+                    <h1 className="user-report-header">Your Recent Reports</h1>
+                    <div className="recent-reports">
+                        {userReports.length === 0 ? (
+                            <div className="no-reports">You haven't reported anyone recently</div>
+                        ) : (
+                            userReports.map((report, index) => (
+                                <UserReportCard 
+                                    key={report.id} 
+                                    report={report}
+                                    backgroundImage={backgroundImages[index % backgroundImages.length]}
+                                />
+                            ))
+                        )}
+                    </div>
                 </div>
+                <hr className="line"/>
                 <div className="leaderboard">
                     <h1 className="leaderboard-header">The Current Leaderboard Standings</h1>
                     {leaderboard.length === 0 ? (
@@ -115,6 +132,7 @@ function DashboardData({ leaderboard }) {
                         ))
                     )}
                 </div>
+                <hr className="line"/>
                 <div className="button-container">
                     <button className="report-feed-button"><BsChatLeftText /> Report Feed</button>
                     <button className="edit-report-button"><FaRegEdit /> Edit Reports</button>
