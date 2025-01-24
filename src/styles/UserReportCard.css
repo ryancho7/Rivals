@@ -33,3 +33,30 @@
 .time-content p {
     margin-bottom: 0;
 }
+
+.user-content {
+    display: flex;
+    flex-direction: row;
+    gap: 0.2em;
+}
+
+.like-content {
+    display: flex;
+    flex-direction: row;
+    gap: 0.3em;
+    padding-left: 0.2em;
+}
+
+.comment-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.2em;
+}
+
+@media (min-width: 1024px) {
+    .report-card {
+        flex: 0 0 400px;
+        min-height: 300px;
+    }
+}

@@ -109,3 +109,44 @@
     margin-top: 1em;
     margin-bottom: 1em;
 }
+
+@media (min-width: 1024px) {
+
+    .time-container {
+        font-size: 30px;
+    }
+
+    .report-count-container {
+        font-size: 30px;
+    }
+
+    .data-container {
+        padding: 3em;
+    }
+    
+    .line {
+        width: 100%;
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+
+    .recent-reports {
+        margin-bottom: 3em;
+    }
+
+    .button-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .report-feed-button {
+        flex-grow: 1;
+        border-radius: 10px;
+    }
+
+    .edit-report-button {
+        flex-grow: 1;
+        border-radius: 10px;
+    }
+
+}

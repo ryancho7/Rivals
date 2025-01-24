@@ -53,3 +53,9 @@
     justify-content: center;
     margin-top: 2em;
 }
+
+@media (min-width: 1024px) {
+    .signout-button {
+        border-radius: 10px;
+    }
+}
