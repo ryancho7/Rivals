@@ -5,9 +5,9 @@ import { AuthContext } from "../AuthContext";
 import { IoTimerOutline } from "react-icons/io5";
 import { BsGraphUp, BsChatLeftText } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
-
-import '../styles/DashboardData.css';
 import UserReportCard from "./UserReportCard";
+import { useNavigate } from "react-router-dom";
+import '../styles/DashboardData.css';
 
 function DashboardData({ leaderboard }) {
 
@@ -15,6 +15,8 @@ function DashboardData({ leaderboard }) {
 
     const [ userReports, setUserReports ] = useState([]);
     const [ userData, setUserData ] = useState(null);
+
+    const navigate = useNavigate();
 
     const backgroundImages = [
         '/images/panther-map.png',
@@ -134,7 +136,7 @@ function DashboardData({ leaderboard }) {
                 </div>
                 <hr className="line"/>
                 <div className="button-container">
-                    <button className="report-feed-button"><BsChatLeftText /> Report Feed</button>
+                    <button className="report-feed-button" onClick={() => navigate('/reportfeed')}><BsChatLeftText /> Report Feed</button>
                     <button className="edit-report-button"><FaRegEdit /> Edit Reports</button>
                 </div>
             </div>

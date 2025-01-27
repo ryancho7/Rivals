@@ -1,0 +1,48 @@
+.report-feed-content {
+    font-family: "Bebas Neue", serif;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../assets/backgrounds/rivals-bg.svg');
+    background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 2.5em; 
+}
+
+.feed-header {
+    color: #DCE1F4;
+    font-size: 65px;
+    line-height: 60px;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+}
+
+.card-feed {
+    display: flex;
+    flex-direction: column;
+    color: #DCE1F4;
+    gap: 2em;
+}
+
+.return-button {
+    margin: 1em 0;
+    display: flex;
+    gap: .8em;
+    align-items: center;
+    cursor: pointer;
+    background-color: #4681f4;
+    color: white;
+    padding: 0.7em;
+    border-radius: 40px;
+    font-size: 20px;
+    font-family: "Bebas Neue", serif;
+    transition: background-color 0.1s ease-in;
+    width: 50%;
+}
+
+.return-button:hover {
+    background-color: #55c2da;
+}
+
+.return-icon {
+    font-size: 30px;
+}

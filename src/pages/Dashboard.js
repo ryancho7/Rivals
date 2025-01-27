@@ -3,7 +3,7 @@ import { AuthContext } from "../AuthContext";
 import { signOut } from "firebase/auth";
 import { auth, db } from "../Firebase";
 import { useNavigate } from "react-router-dom";
-import { Timestamp, collection, deleteDoc, doc, getDoc, getDocs, increment, limit, orderBy, query, setDoc, updateDoc } from "firebase/firestore";
+import { Timestamp, collection, doc, getDocs, increment, limit, orderBy, query, setDoc, updateDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 import DashboardData from "../components/DashboardData";
 import { FaSignOutAlt } from "react-icons/fa";
@@ -13,7 +13,6 @@ function Dashboard() {
 
     const { user } = useContext(AuthContext);
 
-    const [ reportFeed, setReportFeed ] = useState([]);
     const [ leaderboard, setLeaderboard ] = useState([]);
     const [ reportedTag, setReportedTag ] = useState("");
     const [ reportComment, setReportComment ] = useState("");
@@ -28,23 +27,6 @@ function Dashboard() {
 
     // fetch data from firestore
     useEffect(() => {
-        const fetchReports = async () => {
-            try {
-                const reportsRef = collection(db, "reports");
-                const recentReports = query(reportsRef, orderBy("timeOfReport", "desc"), limit(20));
-                const reportSnap = await getDocs(recentReports);
-                // update local state
-                const reportsData = reportSnap.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data()
-                }));
-                setReportFeed(reportsData);
-                console.log("Successfully fetched reports");
-            } catch (error) {
-                console.log("Error fetching reports: ", error);
-            }
-        }
-
         const fetchLeaderboard = async () => {
             try {
                 const userRef = collection(db, "users");
@@ -62,7 +44,7 @@ function Dashboard() {
                 console.log("Error fetching leaderboard: ", error);
             }
         }
-        fetchReports();
+        // fetchReports();
         fetchLeaderboard();
     },[]);
 
@@ -103,37 +85,6 @@ function Dashboard() {
         }
 
     }
-    
-    // add like
-    const handleLike = async (reportId) => {
-        if (!user) return;
-        try {
-            const reportRef = doc(db, "reports", reportId);
-            const likeRef = doc(db, "reports", reportId, "likes", user.uid);
-
-            const likeSnap = await getDoc(likeRef);
-
-            if(likeSnap.exists()) {
-                // remove the like
-                await deleteDoc(likeRef);
-                await updateDoc(reportRef, {
-                    likeCount: increment(-1),
-                });
-                console.log("Like removed from this report: ", reportId);
-            } else {
-                // add the like
-                await setDoc(likeRef, {
-                    timestamp: Timestamp.now()
-                });
-                await updateDoc(reportRef, {
-                    likeCount: increment(1),
-                });
-                console.log("Like successfully added to this report: ", reportId);
-            }
-        } catch (error) {
-            console.log("Error adding/removing like: ", error);
-        }
-    }
 
     const handleSignOut = async () => {
         try {
@@ -169,15 +120,6 @@ function Dashboard() {
                 />
                 <button onClick={() => handleCreateReport(reportedTag, reportComment)}>Submit Report</button>
             </div>
-            {/* <div className="report-feed">
-                {reportFeed.length === 0 ? (
-                    <div>Looks like no one has reported yet ...</div>
-                ) : (
-                    reportFeed.map((report) => (
-                        <UserReportCard key={report.id} report={report}/>
-                    ))
-                )}   
-            </div> */}
         </div>
     )
 }
