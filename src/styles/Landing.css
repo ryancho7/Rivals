@@ -57,6 +57,7 @@
     font-weight: 700;
     color: #7b7b7b;
     width: 100%;
+    background-color: white;
 }
 
 .login-button:active {

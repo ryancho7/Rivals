@@ -4,7 +4,7 @@ import { FiUser } from "react-icons/fi";
 import { MdOutlineInsertComment } from "react-icons/md";
 import '../styles/ReportFeedCard.css';
 
-function UserReportCard({ report, backgroundImage, handleLike }) {
+function ReportFeedCard({ report, backgroundImage, handleLike }) {
     return (
         <div 
             className="report-card"
@@ -28,4 +28,4 @@ function UserReportCard({ report, backgroundImage, handleLike }) {
     )
 }
 
-export default UserReportCard;
+export default ReportFeedCard;

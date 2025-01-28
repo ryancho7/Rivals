@@ -10,6 +10,7 @@
 
 .feed-header {
     color: #DCE1F4;
+    width: 80%;
     font-size: 65px;
     line-height: 60px;
     margin-top: 0.5em;
@@ -26,12 +27,12 @@
 .return-button {
     margin: 1em 0;
     display: flex;
-    gap: .8em;
+    gap: 1em;
     align-items: center;
     cursor: pointer;
     background-color: #4681f4;
     color: white;
-    padding: 0.7em;
+    padding: 0.4em 0.7em;
     border-radius: 40px;
     font-size: 20px;
     font-family: "Bebas Neue", serif;

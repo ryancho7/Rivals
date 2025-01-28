@@ -108,7 +108,7 @@ function ReportFeed() {
     return (
         <div className="report-feed-content">
             <h1 className="feed-header">The <span>Rivals</span> Feed</h1>
-            <button className="return-button"><IoChevronBack  className="return-icon"/>Back</button>
+            <button className="return-button" onClick={() => navigate("/dashboard")}><IoChevronBack  className="return-icon"/>Back</button>
             <div className="card-feed">
                 {reportFeed.length === 0 ? (
                     <div className="no-reports">You haven't reported anyone recently</div>
