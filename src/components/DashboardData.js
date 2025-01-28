@@ -4,7 +4,6 @@ import { db } from "../Firebase";
 import { AuthContext } from "../AuthContext";
 import { IoTimerOutline } from "react-icons/io5";
 import { BsGraphUp, BsChatLeftText } from "react-icons/bs";
-import { FaRegEdit } from "react-icons/fa";
 import UserReportCard from "./UserReportCard";
 import { useNavigate } from "react-router-dom";
 import '../styles/DashboardData.css';
@@ -120,9 +119,6 @@ function DashboardData({ leaderboard, userReports, handleDelete }) {
             <div className="button-container">
                 <button className="report-feed-button" onClick={() => navigate('/reportfeed')}>
                     <BsChatLeftText /> Report Feed
-                </button>
-                <button className="edit-report-button">
-                    <FaRegEdit /> Edit Reports
                 </button>
             </div>
         </div>
