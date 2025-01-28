@@ -1,7 +1,10 @@
 import React from "react";
 import '../styles/CreateReport.css';
+import { useNavigate } from "react-router-dom";
 
 function CreateReport({ reportedTag, setReportedTag, reportComment, setReportComment, handleReport }) {
+
+    const navigate = useNavigate();
 
     return (
         <div className="create-report-container">
@@ -17,7 +20,10 @@ function CreateReport({ reportedTag, setReportedTag, reportComment, setReportCom
                 value={reportComment}
                 onChange={(e) => setReportComment(e.target.value)}
             />
-            <button onClick={() => handleReport(reportedTag, reportComment)}>Submit Report</button>
+            <button onClick={() => {
+                handleReport(reportedTag, reportComment);
+                navigate("/thanks");
+            }}>Submit Report</button>
         </div>
     );
 }

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../Firebase";
 import { AuthContext } from "../AuthContext";
 import { IoTimerOutline } from "react-icons/io5";
@@ -22,6 +22,15 @@ function DashboardData({ leaderboard, userReports, handleDelete }) {
         '/images/spider-map.png',
         '/images/tokyo-map.png',
     ];
+
+    useEffect(() => {
+        const unsubscribe = onSnapshot(doc(db, "users", user.uid), (docSnap) => {
+            if (docSnap.exists()) {
+                setUserData(docSnap.data());
+            }
+        });
+        return () => unsubscribe();
+    }, [user]);
 
     useEffect(() => {
         const fetchUserData = async () => {
