@@ -12,7 +12,7 @@ function Landing() {
 
     useEffect(() => {
         if(auth.currentUser) {
-            navigate("/dashboard");
+            navigate("/welcome");
         }
     }, [navigate]);
 
@@ -32,7 +32,7 @@ function Landing() {
                     lastReport: null
                 });
             }
-            navigate("/dashboard");
+            navigate("/welcome");
         } catch (error) {
             console.log("Error logging in with google: ", error);
         }
@@ -45,8 +45,6 @@ function Landing() {
                 <p className="subheader">Enter the ultimate battleground where heroes and villains report each other</p>
                 <button className="login-button" onClick={loginWithGoogle}><FcGoogle className="google-icon"/>Continue with Google</button>
             </div>
-            {/* <p className="subheader">Enter the ultimate battleground where heroes and villains report each other</p>
-            <button className="login-button" onClick={loginWithGoogle}><FcGoogle className="google-icon"/>Continue with Google</button> */}
         </div>
     )
 }
